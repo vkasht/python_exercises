@@ -1,0 +1,15 @@
+1. os.environ - gets a dictonary of environment variables
+   os.getenv - gets a string of environement variable by given key (if key doesn't exist, returns default parameter)
+
+2. json.dump - for storing python objects in json files
+   json.dumps - for converting python objects to json objects: strings, dictionaries etc..	
+
+3. the print command syntax is different in python 2 vs 3, in python 2, print is a statement,
+   while in python 3 it's a function
+
+4. in python 2, xrange() was faster than range() in python 3 xrange() was removed and range() 
+   is used for the same functionallity (with similar performance)
+
+5. with open('file.txt) as f:
+	text = f.read()
+	print(text)
