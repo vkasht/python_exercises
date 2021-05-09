@@ -5,7 +5,7 @@ from itertools import groupby
 
 cur_path = os.getcwd() # get working directory
 main_path = os.path.join(cur_path,'main_folder') # get main folder path
-all_paths = glob.glob(main_path+ '/**/*', recursive=True) # get all paths in main directory recursively - soesn;t work in python 2
+all_paths = glob.glob(main_path+ '/**/*', recursive=True) # get all paths in main directory recursively - doesn't work in python 2
 
 # get a list of image files (filter files with all relevant extensions)
 img_paths = list(filter(lambda x: os.path.isfile(x) and (x.lower().endswith('.jpg') or x.lower().endswith('.png') or x.lower().endswith('.jpeg') or x.endswith('.gif'))\
