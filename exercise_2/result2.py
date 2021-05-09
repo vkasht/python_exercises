@@ -2,14 +2,15 @@ import os
 import glob
 from operator import itemgetter
 from itertools import groupby
+import re
 
 cur_path = os.getcwd()  # get working directory
 main_path = os.path.join(cur_path, 'main_folder')  # get main folder path
-all_paths = glob.glob(main_path + '/**/*', recursive=True)  # get all paths in main directory recursively - doesn't work in python 2
+all_paths = glob.glob(main_path + '/**/*', recursive=True)  # get all paths in main directory recursively - not vallid for python 2
 
-# get a list of image files (filter files with all relevant extensions)
-img_paths = list(filter(lambda x: os.path.isfile(x) and (x.lower().endswith('.jpg') or x.lower().endswith('.png') or
-                                                         x.lower().endswith('.jpeg') or x.endswith('.gif')), all_paths))
+rx = re.compile(r'\.(jpg|png|jpeg|gif)')  # get all image possible extensions
+
+img_paths = list(filter(lambda x: os.path.isfile(x) and rx.search(x), all_paths))  # get a list of all image file paths
 
 img_names = list(map(os.path.basename, img_paths))  # get image names
 dir_paths = list(filter(lambda x: os.path.isdir(x), all_paths))  # filter only paths of directories
